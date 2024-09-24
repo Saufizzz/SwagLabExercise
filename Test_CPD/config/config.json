@@ -1,0 +1,12 @@
+{
+    "roles": {
+        "consultant_maker": {
+            "username": "gad_consultantmix@yopmail.com",
+            "password": "Qwer1234#"
+        },
+        "distributor_checker": {
+            "username": "checker_user",
+            "password": "checker_pass"
+        }
+    }
+}

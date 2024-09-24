@@ -1,0 +1,14 @@
+Product: Sauce Labs Backpack, Price: $29.99
+This is added item []
+Product: Sauce Labs Bike Light, Price: $9.99
+Added Sauce Labs Bike Light to the cart
+This is added item ['Sauce Labs Bike Light']
+Product: Sauce Labs Bolt T-Shirt, Price: $15.99
+Added Sauce Labs Bolt T-Shirt to the cart
+This is added item ['Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt']
+Product: Sauce Labs Fleece Jacket, Price: $49.99
+This is added item ['Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt']
+Product: Sauce Labs Onesie, Price: $7.99
+This is added item ['Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt']
+Product: Test.allTheThings() T-Shirt (Red), Price: $15.99
+This is added item ['Sauce Labs Bike Light', 'Sauce Labs Bolt T-Shirt']
