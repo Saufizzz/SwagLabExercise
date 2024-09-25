@@ -1,3 +1,6 @@
+import logging
+import time
+
 import allure
 
 from Utilities.BaseClass import BaseClass
@@ -37,18 +40,30 @@ class TestE2E(BaseClass):
         # Combine the names, prices, and conditionally add items to cart
         all_items = [(names[i], prices[i]) for i in range(len(items))]
 
+
+
         # Print all items
         for name, price in all_items:
             print(f"Product: {name}, Price: {price}")
-            
-        self.SelectByType(product.selectoption(),"value", "za")
 
-        all_items_sorted = [(names[i], prices[i]) for i in range(len(items))]
-        for name, price in all_items_sorted:
-            print(f"product: {name}, Price: {price}")
+        # Sort the order
+        self.SelectByType(product.selectoption(),"text", "Name (Z to A)")
+        # Wait for sorting to take effect (consider using WebDriverWait)
+        time.sleep(2)  # Adjust as needed
 
-        assert all_items != all_items_sorted, "sorted error"
+        # Get all product names and prices again
+        names_sorted = [name.text for name in product.listProductName()]
+        prices_sorted = [price.text for price in product.listProductPrice()]
 
+        # Combine the sorted names and prices
+        all_items_sorted = [(names_sorted[i], prices_sorted[i]) for i in range(len(items))]
+
+        # Assert the sorted order
+        assert all_items != all_items_sorted, "Sorted error"
+        logging.basicConfig(level=logging.INFO)
+        logger = logging.getLogger()
+
+        logger.info(f"Product: {name}, Price: {price}")
 
 
 

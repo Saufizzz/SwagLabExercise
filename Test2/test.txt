@@ -1,5 +1,0 @@
-abc
-bcd
-cdef
-dog
-eye
