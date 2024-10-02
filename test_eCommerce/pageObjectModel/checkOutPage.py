@@ -31,7 +31,7 @@ class CheckOut:
         self.driver.find_element(*CheckOut.ContinueBtn).click()
 
     def displayCheckoutOverview(self):
-        return self.driver.find_element(CheckOut.checkoutOverview)
+        return self.driver.find_element(*CheckOut.checkoutOverview)
 
     def get_price_element(self):
         return self.driver.find_element(*CheckOut.price_element)

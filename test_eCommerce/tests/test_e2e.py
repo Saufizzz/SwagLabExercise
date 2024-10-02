@@ -139,7 +139,7 @@ class TestE2E(BaseClass):
         checkout.clickContinue()
 
         #postCheckout
-        self.WaitElementPresent(checkout.displayCheckoutOverview())
+        self.WaitElementPresent(checkout.checkoutOverview)
         assert checkout.displayCheckoutOverview().is_displayed(), "Wrong Page"
 
 
