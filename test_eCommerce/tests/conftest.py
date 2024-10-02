@@ -24,7 +24,7 @@ def setup_and_teardown(request):
 
     urls = {
         "dev": "https://www.saucedemo.com/",
-        "staging": "https://staging.example.com",
+        "staging": "https://www.google.co.uk/",
         "prod": "https://prod.example.com"
     }
     if browser_name == "chrome":

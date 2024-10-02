@@ -7,7 +7,7 @@ from Utilities.BaseClass import BaseClass
 from pageObjectModel.cartPage import CartPage
 from pageObjectModel.loginPage import LoginPage
 from pageObjectModel.productPage import ProductPage
-from allure_commons.types import AttachmentType
+from pageObjectModel.checkOutPage import CheckOut
 
 
 class TestE2E(BaseClass):
@@ -94,6 +94,7 @@ class TestE2E(BaseClass):
         # Combine the names and prices and print them
         all_items = []
         added_item = []
+
         for i in range(len(items)):
             name = names[i].text
             price = prices[i].text
@@ -101,7 +102,7 @@ class TestE2E(BaseClass):
 
             if name in ["Sauce Labs Bolt T-Shirt", "Sauce Labs Bike Light"]:
                 addCartBtn[i].click()
-                added_item.append(name)
+                added_item.append((name,price)) #-> stored in a tuple
                 print(f"Added {name} to the cart")
 
             # Optionally, you can append the name and price to the all_items list
@@ -110,10 +111,42 @@ class TestE2E(BaseClass):
 
         product.navToCart()
 
-#CartPage
+        #CartPage
+
         cart = CartPage(self.driver)
         self.WaitElementPresent(cart.cart_title)
         assert cart.cartTitle().is_displayed(), "Display Wrong Page"
+
+        addToCartItem = cart.allAddedItem()
+
+        #get all added product name
+        cart_items = [item.text for item in cart.cartItemNameDisplay()]
+        cart_prices = [price.text for price in cart.cartItemPriceDisplay()]
+
+        all_cart_items = [(cart_items[i] , cart_prices[i]) for i in range(len(addToCartItem))]
+
+        print(added_item)
+        print(all_cart_items)
+        assert added_item == all_cart_items, "wrongly append"
+
+        cart.clickCheckOutBtn()
+
+        #checkoutpage
+        checkout = CheckOut(self.driver)
+        checkout.insert_firstName("saufi")
+        checkout.insert_LastName("shaharudin")
+        checkout.insert_PostalCode("43000")
+        checkout.clickContinue()
+
+        #postCheckout
+        self.WaitElementPresent(checkout.displayCheckoutOverview())
+        assert checkout.displayCheckoutOverview().is_displayed(), "Wrong Page"
+
+
+
+
+
+
 
 
 

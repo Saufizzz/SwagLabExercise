@@ -15,26 +15,26 @@ class CheckOut:
 
 
 
-    def __init(self, driver):
+    def __init__(self,driver):
         self.driver = driver
 
     def insert_firstName(self, name):
-        self.driver.find_element(*checkOut.first_name).send_keys(name)
+        self.driver.find_element(*CheckOut.first_name).send_keys(name)
 
     def insert_LastName(self, last_name):
-        self.driver.find_element(*checkOut.last_name).send_keys(last_name)
+        self.driver.find_element(*CheckOut.last_name).send_keys(last_name)
 
     def insert_PostalCode(self, code):
-        self.driver.find_element(*checkOut.PostalCode).send_keys(code)
+        self.driver.find_element(*CheckOut.PostalCode).send_keys(code)
 
     def clickContinue(self):
-        self.driver.find_element(*checkOut.ContinueBtn).click()
+        self.driver.find_element(*CheckOut.ContinueBtn).click()
 
     def displayCheckoutOverview(self):
-        return self.driver.find_element(checkOut.checkoutOverview)
+        return self.driver.find_element(CheckOut.checkoutOverview)
 
     def get_price_element(self):
-        return self.driver.find_element(*checkOut.price_element)
+        return self.driver.find_element(*CheckOut.price_element)
         # price_string = price_element.text  # Get the text, e.g., "Subtotal: $15.98"
         #
         # # Use regex to extract the numeric value
